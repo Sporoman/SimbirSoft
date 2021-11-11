@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
 
 namespace SimbirSoft
 {
@@ -14,11 +15,11 @@ namespace SimbirSoft
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseToken("555");
+            app.UseRouting();
 
-            app.Run(async (context) =>
+            app.UseEndpoints(endpoints => 
             {
-                await context.Response.WriteAsync("Hello World");
+                endpoints.MapControllers();
             });
         }
     }

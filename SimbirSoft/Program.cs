@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace SimbirSoft
 {
+    /// <summary>
+    /// 1 - Создание ASP.NET 5.0 Web Api проекта
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)
