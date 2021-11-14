@@ -12,7 +12,7 @@ namespace SimbirSoft.Controllers
     public class HumanController : ControllerBase
     {
         /// <summary>
-        /// 3.1.1 Get для всех людей
+        /// 3.1.1 GET для всех людей
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -22,7 +22,7 @@ namespace SimbirSoft.Controllers
         }
 
         /// <summary>
-        /// 3.1.2 Get для всех людей, которые пишут книги
+        /// 3.1.2 GET для всех людей, которые пишут книги
         /// </summary>
         /// <returns></returns>
         [HttpGet("writers")]
@@ -32,7 +32,7 @@ namespace SimbirSoft.Controllers
         }
 
         /// <summary>
-        /// 3.1.3 Get для всех людей, в имени, фамилии или отчестве которых содержится поисковая фраза (query).
+        /// 3.1.3 GET для всех людей, в имени, фамилии или отчестве которых содержится поисковая фраза (query).
         /// </summary>
         /// <returns></returns>
         [HttpGet("search")]
