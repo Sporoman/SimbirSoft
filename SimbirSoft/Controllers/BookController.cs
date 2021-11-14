@@ -12,7 +12,7 @@ namespace SimbirSoft.Controllers
     public class BookController : ControllerBase
     {
         /// <summary>
-        /// 4.1.1 Get для всех книг
+        /// 4.1.1 GET для всех книг
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -22,7 +22,7 @@ namespace SimbirSoft.Controllers
         }
 
         /// <summary>
-        /// 4.1.2 Get для всех книг по id автора
+        /// 4.1.2 GET для всех книг по id автора
         /// </summary>
         /// <returns></returns>
         [HttpGet("byAuthorID")]
@@ -40,6 +40,27 @@ namespace SimbirSoft.Controllers
                     list.Add(unit);
 
             return list;
+        }
+
+        /// <summary>
+        /// 4.2 POST добавляющий новую книгу.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public void AddBook([FromBody] BookDto unit)
+        {
+            // При передаче ID игнорируется
+            TestData.AddBookToList(new BookDto { Title = unit.Title, Genre = unit.Genre, AuthorID = unit.AuthorID });
+        }
+
+        /// <summary>
+        /// 4.3 DELETE удаляющий книгу.
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        public void DeleteBook(int id)
+        {
+            TestData.GetBooksList().RemoveAll(unit => unit.ID == id);
         }
     }
 }
