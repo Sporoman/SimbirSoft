@@ -7,8 +7,9 @@ namespace SimbirSoft
     /// </summary>
     public static class TestData
     {
-        static public int IDHuman = 3;
-        static public int IDBook  = 3;
+        // Переменные счётчики для ID
+        static private int IDHuman = 4;
+        static private int IDBook  = 4;
 
         static private List<HumanDto> _humansList = new List<HumanDto>()
         {
