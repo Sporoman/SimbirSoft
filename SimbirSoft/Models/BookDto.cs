@@ -1,4 +1,4 @@
-﻿namespace SimbirSoft
+﻿namespace SimbirSoft.Models
 {
     /// <summary>
     /// 2.2.2 - Класс представления книги
