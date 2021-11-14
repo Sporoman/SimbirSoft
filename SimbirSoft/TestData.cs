@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SimbirSoft.Models;
 
 namespace SimbirSoft
 {
@@ -7,9 +8,10 @@ namespace SimbirSoft
     /// </summary>
     public static class TestData
     {
-        // Переменные счётчики для ID
+        // Переменные-счётчики для ID
         static private int _idHuman = 7;
         static private int _idBook  = 4;
+        static private int _idCard  = 1;
 
         static private List<HumanDto> _humansList = new List<HumanDto>()
         {
@@ -28,6 +30,13 @@ namespace SimbirSoft
             new BookDto{ ID = 2, Title = "Хижина дяди Тома", Genre = "Роман",   AuthorID = 5 },
             new BookDto{ ID = 3, Title = "Плоды земли",      Genre = "Роман",   AuthorID = 6 }
         };
+
+        /// <summary>
+        /// Часть 2.1; 3 - Cтатичный список, отвечающий за хранение карт
+        /// </summary>
+        static private List<LibraryCardDto> _cardsList = new List<LibraryCardDto>();
+
+        // -------------------------- Methods -------------------------- //
 
         public static List<HumanDto> GetHumansList()
         {
@@ -54,6 +63,20 @@ namespace SimbirSoft
             ++_idBook;
 
             _booksList.Add(unit);
+        }
+
+        public static List<LibraryCardDto> GetCardsList()
+        {
+            return _cardsList;
+        }
+
+        public static void AddCardToList(LibraryCardDto unit)
+        {
+            // Присваиваем ID записи и увеличиваем счётчик
+            unit.ID = _idCard;
+            ++_idCard;
+
+            _cardsList.Add(unit);
         }
     }
 }
