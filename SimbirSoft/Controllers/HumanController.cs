@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimbirSoft.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,7 +33,7 @@ namespace SimbirSoft.Controllers
         }
 
         /// <summary>
-        /// 3.1.3 GET для всех людей, в имени, фамилии или отчестве которых содержится поисковая фраза (query).
+        /// 3.1.3 GET для всех людей, в имени, фамилии или отчестве которых содержится поисковая фраза (query)
         /// </summary>
         /// <returns></returns>
         [HttpGet("search")]
@@ -64,7 +65,7 @@ namespace SimbirSoft.Controllers
         }
 
         /// <summary>
-        /// 3.2 POST добавляющий нового человека.
+        /// 3.2 POST добавляющий нового человека
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -76,7 +77,7 @@ namespace SimbirSoft.Controllers
         }
 
         /// <summary>
-        /// 3.3 DELETE удаляющий человека.
+        /// 3.3 DELETE удаляющий человека
         /// </summary>
         /// <returns></returns>
         [HttpDelete]
