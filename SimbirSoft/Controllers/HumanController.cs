@@ -72,8 +72,19 @@ namespace SimbirSoft.Controllers
         [HttpPost]
         public void AddHuman([FromBody] HumanDto unit)
         {
+            // При передаче ID игнорируется
             TestData.AddHumanToList(new HumanDto { Surname = unit.Surname, Name = unit.Name, 
                 Patronymic = unit.Patronymic, Birthday = unit.Birthday, Writer = unit.Writer });
+        }
+
+        /// <summary>
+        /// 3.3 DELETE удаляющий человека.
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        public void DeleteHuman(int id)
+        {
+            TestData.GetHumansList().RemoveAll(unit => unit.ID == id);
         }
     }
 }
