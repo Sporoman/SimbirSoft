@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SimbirSoft.Middlewares;
 
 namespace SimbirSoft
 {
@@ -28,6 +29,9 @@ namespace SimbirSoft
             }
 
             app.UseRouting();
+
+            // ¬ключаем сюда наши middlewares
+            app.UseMiddleware<RequestTimeLoggerMiddleware>();
 
             app.UseEndpoints(endpoints => 
             {
