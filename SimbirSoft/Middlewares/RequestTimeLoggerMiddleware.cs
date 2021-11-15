@@ -27,8 +27,8 @@ namespace SimbirSoft.Middlewares
 
             // После отработки запроса ещё раз считываем время и вычисляем время отрабоки запроса
             DateTimeOffset endTime = DateTimeOffset.Now;
-            _logger.LogInformation($"Время запроса: {startTime.ToString("HH:mm:ss:ffff")} - {endTime.ToString("HH:mm:ss:ffff")} \n");
-            _logger.LogInformation($"Время выполнения запроса: {(endTime- startTime).TotalSeconds}");
+            _logger.LogInformation($"Время запроса: {startTime.ToString("HH:mm:ss:ffff")} - {endTime.ToString("HH:mm:ss:ffff")} \n" +
+                                   $"      Время выполнения запроса: {(endTime- startTime).TotalSeconds}");
         }
     }
 }
