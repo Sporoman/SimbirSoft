@@ -32,6 +32,7 @@ namespace SimbirSoft
 
             // ¬ключаем сюда наши middlewares
             app.UseMiddleware<RequestTimeLoggerMiddleware>();
+            app.UseMiddleware<AuthorizationMiddleware>();
 
             app.UseEndpoints(endpoints => 
             {
