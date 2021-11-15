@@ -21,24 +21,31 @@ namespace SimbirSoft.Controllers
 
         /// <summary>
         /// Часть 2.1; 4 - POST отвечающий за взятие книги читателем
+        /// Часть 2.2; 1 - Добавление валидации
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public void AddCard(int humanID, int bookID)
+        public IActionResult AddCard(int humanID, int bookID)
         {
             // Проверка на неккоректный id человека
             var humanUnit = TestData.GetHumansList().FirstOrDefault(unit => unit.ID == humanID);
             if (humanUnit == null)
-                return;
+                ModelState.AddModelError("humanUnit", "Error: humanUnit = null");
 
             // Проверка на неккоректный id книги
             var bookUnit = TestData.GetBooksList().FirstOrDefault(unit => unit.ID == bookID);
             if (bookUnit == null)
-                return;
+                ModelState.AddModelError("humanUnit", "Error: humanUnit = null");
 
             // При добавлении ID игнорируется,
             // время выставляется автоматически текущее
-            TestData.AddCardToList(new LibraryCardDto { Human = humanUnit, Book = bookUnit, DateOfGive = DateTimeOffset.Now });
+            if (ModelState.IsValid)
+            {
+                TestData.AddCardToList(new LibraryCardDto { Human = humanUnit, Book = bookUnit, DateOfGive = DateTimeOffset.Now });
+                return Ok();
+            }
+            else
+                return BadRequest(ModelState);
         }
     }
 }
