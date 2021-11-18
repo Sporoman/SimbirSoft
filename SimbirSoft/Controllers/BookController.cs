@@ -44,14 +44,44 @@ namespace SimbirSoft.Controllers
         }
 
         /// <summary>
+        /// Часть 2.2; 2 - Возможность сделать запрос с сортировкой по автору, имени книги и жанру.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("sortBy")]
+        public IEnumerable<BookDto> GetSortBook(string sortStr)
+        {
+            sortStr = sortStr.ToLower();
+
+            switch(sortStr)
+            {
+                case "title" :  return TestData.GetBooksList().OrderBy(unit => unit.Title);
+                case "author":  return TestData.GetBooksList().OrderBy(unit => unit.AuthorID);
+                case "genre" :  return TestData.GetBooksList().OrderBy(unit => unit.Genre);
+
+                default: return GetBooks();
+            }
+        }
+
+        /// <summary>
         /// 4.2 POST добавляющий новую книгу.
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public void AddBook([FromBody] BookDto unit)
+        public IActionResult AddBook([FromBody] BookDto unit)
         {
-            // При передаче ID игнорируется
-            TestData.AddBookToList(new BookDto { Title = unit.Title, Genre = unit.Genre, AuthorID = unit.AuthorID });
+            // Проверка на корректный ID автора
+            var bookUnit = TestData.GetHumansList().FirstOrDefault(unitHuman => unitHuman.ID == unit.AuthorID);
+            if (bookUnit == null)
+                ModelState.AddModelError("authorID", "Error: заданного authorID не существует");
+
+            if (ModelState.IsValid)
+            {
+                // При передаче ID игнорируется
+                TestData.AddBookToList(new BookDto { Title = unit.Title, Genre = unit.Genre, AuthorID = unit.AuthorID });
+                return Ok($"{unit.Title}, {unit.Genre}, {unit.AuthorID}.");
+            }
+            else
+                return BadRequest(ModelState);
         }
 
         /// <summary>
