@@ -30,7 +30,7 @@ namespace SimbirSoft
 
             app.UseRouting();
 
-            // Включаем сюда наши middlewares
+            // Р’РєР»СЋС‡Р°РµРј СЃСЋРґР° РЅР°С€Рё middlewares
             app.UseMiddleware<RequestTimeLoggerMiddleware>();
             app.UseMiddleware<AuthorizationMiddleware>();
 

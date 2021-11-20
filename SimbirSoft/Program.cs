@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Hosting;
+п»їusing Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SimbirSoft
 {
     /// <summary>
-    /// 1 - Создание ASP.NET 5.0 Web Api проекта
+    /// 1 - РЎРѕР·РґР°РЅРёРµ ASP.NET 5.0 Web Api РїСЂРѕРµРєС‚Р°
     /// </summary>
     public class Program
     {
