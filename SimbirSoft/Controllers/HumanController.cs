@@ -52,12 +52,12 @@ namespace SimbirSoft.Controllers
             foreach (var unit in TestData.GetHumansList())
             {
                 // Складываем части полного имени в одну строку
-                string FullName = unit.Name + unit.Patronymic + unit.Surname;
+                string fullName = unit.Name + unit.Patronymic + unit.Surname;
 
                 // Переводим строку в нижний регистр
-                FullName = FullName.ToLower();
+                fullName = fullName.ToLower();
 
-                if (FullName.Contains(queryStr))
+                if (fullName.Contains(queryStr))
                     list.Add(unit);
             }
 

@@ -20,7 +20,7 @@ namespace SimbirSoft.Middlewares
             // Проверка на хедер "Authorization" со значением "Basic admin:admin"
             if (context.Request.Headers["Authorization"] != "Basic admin:admin")
             {
-                context.Response.StatusCode = 403;
+                context.Response.StatusCode = 401;
                 await context.Response.WriteAsync("Authorization failed.");
             }
             else
