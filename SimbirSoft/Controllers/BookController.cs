@@ -13,6 +13,16 @@ namespace SimbirSoft.Controllers
     public class BookController : ControllerBase
     {
         /// <summary>
+        /// Перечисление для сортировки книг
+        /// </summary>
+        public enum SortBookEnum
+        {
+            Title  = 1,     // Название
+            Author = 2,     // Автор
+            Genre  = 3      // Жанр
+        }
+
+        /// <summary>
         /// 4.1.1 GET для всех книг
         /// </summary>
         /// <returns></returns>
@@ -46,16 +56,15 @@ namespace SimbirSoft.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("sortBy")]
-        public IEnumerable<BookDto> GetSortBook(string sortStr)
+        public IEnumerable<BookDto> GetSortBook(SortBookEnum sortStr)
         {
-            sortStr = sortStr.ToLower();
-
-            switch(sortStr)
+            switch (sortStr)
             {
-                case "title" :  return TestData.GetBooksList().OrderBy(unit => unit.Title);
-                case "author":  return TestData.GetBooksList().OrderBy(unit => unit.AuthorID);
-                case "genre" :  return TestData.GetBooksList().OrderBy(unit => unit.Genre);
+                case SortBookEnum.Title:  return TestData.GetBooksList().OrderBy(unit => unit.Title);
+                case SortBookEnum.Author: return TestData.GetBooksList().OrderBy(unit => unit.AuthorID);
+                case SortBookEnum.Genre:  return TestData.GetBooksList().OrderBy(unit => unit.Genre);
 
+                // Просто возвращаем список книг, как он есть
                 default: return GetBooks();
             }
         }
