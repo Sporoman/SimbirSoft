@@ -79,16 +79,11 @@ namespace SimbirSoft.Controllers
             // Проверка на корректный ID автора
             var bookUnit = TestData.GetHumansList().FirstOrDefault(unitHuman => unitHuman.ID == unit.AuthorID);
             if (bookUnit == null)
-                ModelState.AddModelError("authorID", "Error: заданного authorID не существует");
+                return BadRequest($"Error: заданного authorID ({unit.AuthorID}) не существует.");
 
-            if (ModelState.IsValid)
-            {
-                // При передаче ID игнорируется
-                TestData.AddBookToList(new BookDto { Title = unit.Title, Genre = unit.Genre, AuthorID = unit.AuthorID });
-                return Ok($"{unit.Title}, {unit.Genre}, {unit.AuthorID}.");
-            }
-            else
-                return BadRequest(ModelState);
+            // При передаче ID игнорируется
+            TestData.AddBookToList(new BookDto { Title = unit.Title, Genre = unit.Genre, AuthorID = unit.AuthorID });
+            return Ok($"{unit.Title}, {unit.Genre}, {unit.AuthorID}.");
         }
 
         /// <summary>
