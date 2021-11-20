@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SimbirSoft.Models;
 
 namespace SimbirSoft
@@ -15,15 +16,13 @@ namespace SimbirSoft
 
         static private List<HumanDto> _humansList = new List<HumanDto>()
         {
-            new HumanDto{ ID = 1, Surname = "Ульянов",    Name = "Владимир", Patronymic = "Ильич",       Birthday = "22.04.1870", Writer = false },
-            new HumanDto{ ID = 2, Surname = "Воронин",    Name = "Николай",  Patronymic = "Петрович",    Birthday = "12.05.1963", Writer = false },
-            new HumanDto{ ID = 3, Surname = "Максимов",   Name = "Андрей",   Patronymic = "Иванович",    Birthday = "21.10.2000", Writer = false },
-
-            new HumanDto{ ID = 4, Surname = "Воронин",    Name = "Дмитрий",  Patronymic = "Анатольевич", Birthday = "12.05.1980", Writer = true },
-            new HumanDto{ ID = 5, Surname = "Бичер-Стоу", Name = "Гарриет",  Patronymic = "",            Birthday = "14.06.1811", Writer = true },
-            new HumanDto{ ID = 6, Surname = "Гамсун",     Name = "Кнут",     Patronymic = "",            Birthday = "04.08.1859", Writer = true }
-        };
-
+            new HumanDto{ ID = 1, Surname = "Ульянов",    Name = "Владимир", Patronymic = "Ильич",       Birthday = new DateTimeOffset(new DateTime(1870, 04, 22)), Writer = false },
+            new HumanDto{ ID = 2, Surname = "Воронин",    Name = "Николай",  Patronymic = "Петрович",    Birthday = new DateTimeOffset(new DateTime(1963, 05, 12)), Writer = false },
+            new HumanDto{ ID = 3, Surname = "Максимов",   Name = "Андрей",   Patronymic = "Иванович",    Birthday = new DateTimeOffset(new DateTime(2000, 10, 21)), Writer = false },
+            new HumanDto{ ID = 4, Surname = "Воронин",    Name = "Дмитрий",  Patronymic = "Анатольевич", Birthday = new DateTimeOffset(new DateTime(1980, 05, 12)), Writer = true },
+            new HumanDto{ ID = 5, Surname = "Бичер-Стоу", Name = "Гарриет",  Patronymic = "",            Birthday = new DateTimeOffset(new DateTime(1811, 06, 14)), Writer = true },
+            new HumanDto{ ID = 6, Surname = "Гамсун",     Name = "Кнут",     Patronymic = "",            Birthday = new DateTimeOffset(new DateTime(1859, 08, 04)), Writer = true }
+        }; 
         static private List<BookDto> _booksList = new List<BookDto>()
         {
             new BookDto{ ID = 1, Title = "Синее пламя",      Genre = "Фэнтези", AuthorID = 4 },

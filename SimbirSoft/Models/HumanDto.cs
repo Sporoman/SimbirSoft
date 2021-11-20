@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace SimbirSoft.Models
 {
@@ -16,7 +17,7 @@ namespace SimbirSoft.Models
         [Required(ErrorMessage = "Не указано Отчество")]
         public string Patronymic { get; set; }
         [Required(ErrorMessage = "Не указана Дата Рождения")]
-        public string Birthday { get; set; }
+        public DateTimeOffset Birthday { get; set; }
         public bool Writer { get; set; }
     }
 }
