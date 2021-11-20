@@ -27,18 +27,16 @@ namespace SimbirSoft.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("byAuthorID")]
-        public IEnumerable<BookDto> GetBookByAuthorID(int id)
+        public IEnumerable<BookDto> GetBookByAuthorId(int id)
         {
             // Проверка на нулевой id 
             if (id == 0)
                 return GetBooks();
 
-            // Объявляем новый список для отбора необходимых книг
-            var list = new List<BookDto>();
-
-            foreach (var unit in TestData.GetBooksList())
-                if (unit.AuthorID == id)
-                    list.Add(unit);
+            // Объявляем новый список для отбора необходимых книг с помощью linq
+            var list = from unit in TestData.GetBooksList()
+                       where unit.AuthorID == id
+                       select unit;
 
             return list;
         }
