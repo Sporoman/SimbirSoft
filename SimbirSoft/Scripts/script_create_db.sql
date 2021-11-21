@@ -29,33 +29,33 @@ GO
 /****** Object: Table [genre] ******/
 CREATE TABLE [genre]
 (
-	[id]	[int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_genre] PRIMARY KEY,
-	[name]	[nvarchar](50) NOT NULL
+	[id]     [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_genre] PRIMARY KEY,
+	[name]   [nvarchar](50) NOT NULL
 )
 GO
 
 /****** Object: Table [book] ******/
 CREATE TABLE [book]
 (
-	[id]		[int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_book] PRIMARY KEY,
-	[name]		[nvarchar](50) NOT NULL,
-	[author_id]	[int] NOT NULL
+	[id]          [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_book] PRIMARY KEY,
+	[name]        [nvarchar](50) NOT NULL,
+	[author_id]   [int] NOT NULL
 )
 GO
 
 /****** Object: Table [book_genre] ******/
 CREATE TABLE [book_genre]
 (
-	[book_id]	[int] NOT NULL,
-	[genre_id]	[int] NOT NULL
+	[book_id]    [int] NOT NULL,
+	[genre_id]   [int] NOT NULL
 )
 GO
 
 /****** Object: Table [library_card] ******/
 CREATE TABLE [library_card]
 (
-	[person_id]	[int] NULL,
-	[book_id]	[int] NULL
+	[person_id]   [int] NULL,
+	[book_id]     [int] NULL
 )
 GO
 
