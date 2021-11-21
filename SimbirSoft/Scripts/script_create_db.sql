@@ -37,9 +37,9 @@ GO
 /****** Object: Table [book] ******/
 CREATE TABLE [book]
 (
-	[id] [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_book] PRIMARY KEY,
-	[name] [nvarchar](50) NOT NULL,
-	[author_id] [int] NOT NULL
+	[id]		[int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_book] PRIMARY KEY,
+	[name]		[nvarchar](50) NOT NULL,
+	[author_id]	[int] NOT NULL
 )
 GO
 

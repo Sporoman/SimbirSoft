@@ -1,4 +1,4 @@
-SELECT genre.name as 'Жанр', Count(*) as 'Количество'
+SELECT genre.name as 'Р–Р°РЅСЂ', Count(*) as 'РљРѕР»РёС‡РµСЃС‚РІРѕ'
 FROM genre
 JOIN book_genre ON book_genre.genre_id = genre.id
 GROUP BY genre.name;
