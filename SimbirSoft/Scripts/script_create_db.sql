@@ -8,21 +8,21 @@ GO
 /****** Object: Table [author] ******/
 CREATE TABLE [author]
 (
-	[id]			[int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_author] PRIMARY KEY,
-	[first_name]	[nvarchar](50) NOT NULL,
-	[last_name]		[nvarchar](50) NOT NULL,
-	[middle_name]	[nvarchar](50) NULL
+	[id]            [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_author] PRIMARY KEY,
+	[first_name]    [nvarchar](50) NOT NULL,
+	[last_name]     [nvarchar](50) NOT NULL,
+	[middle_name]   [nvarchar](50) NULL
 )
 GO
 
 /****** Object: Table [person] ******/
 CREATE TABLE [person]
 (
-	[id]			[int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_person] PRIMARY KEY,
-	[first_name]	[nvarchar](50) NOT NULL,
-	[last_name]		[nvarchar](50) NOT NULL,
-	[middle_name]	[nvarchar](50) NULL,
-	[birth_date]	[date] NULL
+	[id]            [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_person] PRIMARY KEY,
+	[first_name]    [nvarchar](50) NOT NULL,
+	[last_name]     [nvarchar](50) NOT NULL,
+	[middle_name]   [nvarchar](50) NULL,
+	[birth_date]    [date] NULL
 )
 GO
 
