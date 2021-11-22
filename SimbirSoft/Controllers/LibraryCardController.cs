@@ -33,18 +33,18 @@ namespace SimbirSoft.Controllers
                 ModelState.AddModelError("humanUnit", "Error: humanUnit = null");
 
             // Проверка на неккоректный id книги
-            var bookUnit = TestData.GetBooksList().FirstOrDefault(unit => unit.ID == bookID);
-            if (bookUnit == null)
-                ModelState.AddModelError("humanUnit", "Error: humanUnit = null");
+            //var bookUnit = TestData.GetBooksList().FirstOrDefault(unit => unit.ID == bookID);
+            //if (bookUnit == null)
+            //    ModelState.AddModelError("humanUnit", "Error: humanUnit = null");
 
             // При добавлении ID игнорируется,
             // время выставляется автоматически текущее
-            if (ModelState.IsValid)
-            {
-                TestData.AddCardToList(new LibraryCardDto { Human = humanUnit, Book = bookUnit, DateOfGive = DateTimeOffset.Now });
-                return Ok();
-            }
-            else
+            //if (ModelState.IsValid)
+            //{
+            //    TestData.AddCardToList(new LibraryCardDto { Human = humanUnit, Book = bookUnit, DateOfGive = DateTimeOffset.Now });
+            //    return Ok();
+            //}
+            //else
                 return BadRequest(ModelState);
         }
     }
