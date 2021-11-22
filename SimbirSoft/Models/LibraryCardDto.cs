@@ -13,7 +13,7 @@ namespace SimbirSoft.Models
         [Required(ErrorMessage = "Не указан Человек")]
         public HumanDto Human { get; set; }
         [Required(ErrorMessage = "Не указана Книга")]
-        public Book Book { get; set; }
+        public BookDto Book { get; set; }
         public DateTimeOffset DateOfGive { get; set; }
     }
 }
