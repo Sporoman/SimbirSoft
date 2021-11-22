@@ -23,12 +23,17 @@ namespace SimbirSoft.Middlewares
         {
             // Считываем время и вызываем следующий middleware
             DateTimeOffset startTime = DateTimeOffset.Now;
-            await _next.Invoke(context);
-
-            // После отработки запроса ещё раз считываем время и вычисляем время отрабоки запроса
-            DateTimeOffset endTime = DateTimeOffset.Now;
-            _logger.LogInformation($"Время запроса: {startTime.ToString("HH:mm:ss:ffff")} - {endTime.ToString("HH:mm:ss:ffff")} \n" +
-                                   $"      Время выполнения запроса: {(endTime- startTime).TotalSeconds}");
+            try
+            {
+                await _next.Invoke(context);
+            }
+            finally
+            {
+                // После отработки запроса ещё раз считываем время и вычисляем время отрабоки запроса
+                DateTimeOffset endTime = DateTimeOffset.Now;
+                _logger.LogInformation($"Время запроса: {startTime.ToString("HH:mm:ss:ffff")} - {endTime.ToString("HH:mm:ss:ffff")} \n" +
+                                       $"      Время выполнения запроса: {(endTime - startTime).TotalSeconds}");
+            }
         }
     }
 }
