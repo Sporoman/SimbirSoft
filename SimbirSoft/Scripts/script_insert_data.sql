@@ -52,7 +52,16 @@ GO
 
 /****** Insert in [library_card] ******/
 INSERT [library_card]
-	([person_id], [book_id]) 
+	([person_id], [book_id], [taking_date]) 
 	VALUES 
-	(1, 3), (2, 3), (3, 3), (1, 1), (2, 2), (4, 2), (4, 4), (4, 5), (4, 6), (4, 7)
+	(1, 3, CAST(N'2021-06-12' AS Date)),
+	(2, 3, CAST(N'2021-11-20' AS Date)),
+	(3, 3, CAST(N'2021-11-15' AS Date)),
+	(1, 1, NULL),
+	(2, 2, NULL),
+	(4, 2, CAST(N'2021-10-20' AS Date)),
+	(4, 4, NULL),
+	(4, 5, CAST(N'2021-09-28' AS Date)),
+	(4, 6, CAST(N'2021-11-02' AS Date)),
+	(4, 7, CAST(N'2021-10-29' AS Date))
 GO

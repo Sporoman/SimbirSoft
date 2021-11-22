@@ -54,8 +54,9 @@ GO
 /****** Object: Table [library_card] ******/
 CREATE TABLE [library_card]
 (
-	[person_id]   [int] NULL,
-	[book_id]     [int] NULL
+	[person_id]     [int] NULL,
+	[book_id]       [int] NULL,
+	[taking_date]   [date] NULL
 )
 GO
 
