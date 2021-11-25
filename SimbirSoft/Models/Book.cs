@@ -8,10 +8,10 @@ namespace SimbirSoft.Models
     /// </summary>
     public class Book
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Не указано Название")]
-        public string name { get; set; }
+        public string Name { get; set; }
         [Required(ErrorMessage = "Не указан ID Автора")]
-        public int author_id { get; set; }
+        public int AuthorId { get; set; }
     }
 }
