@@ -24,7 +24,7 @@ namespace SimbirSoft
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Config.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ContextDb>(options => options.UseSqlServer(connection));
 
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<BookService>();
