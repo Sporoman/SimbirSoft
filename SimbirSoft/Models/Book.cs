@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SimbirSoft.Models
 {
@@ -12,6 +13,13 @@ namespace SimbirSoft.Models
         [Required(ErrorMessage = "Не указано Название")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Не указан ID Автора")]
-        public int AuthorId { get; set; }
+        public int Author_Id { get; set; }
+
+        public virtual List<Genre> Genre { get; set; }
+
+        public Book()
+        {
+            Genre = new List<Genre>();
+        }
     }
 }

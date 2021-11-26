@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace SimbirSoft.Repositories.Interfaces
 {
-    public interface IBookRepository
+    public interface IGenreRepository
     {
-        List<Book> GetBooks();
-        Book AddBook(Book book);
+        List<Genre> GetGenres();
     }
 }
