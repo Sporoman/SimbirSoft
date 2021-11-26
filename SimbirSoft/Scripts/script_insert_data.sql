@@ -1,8 +1,8 @@
 USE [simbirSoft]
 GO
 
-/****** Insert in [person] ******/
-INSERT [person] 
+/****** Insert in [persons] ******/
+INSERT [persons] 
 	([first_name], [last_name], [middle_name], [birth_date]) 
 	VALUES 
 	(N'Владимир',   N'Ульянов',    N'Ильич',      CAST(N'1870-04-22' AS Date)),
@@ -11,8 +11,8 @@ INSERT [person]
 	(N'Тестик',     N'Тест',       N'Тестович',   CAST(N'2003-03-23' AS Date))
 GO
 
-/****** Insert in [author] ******/
-INSERT [author] 
+/****** Insert in [authors] ******/
+INSERT [authors] 
 	([first_name], [last_name], [middle_name]) 
 	VALUES 
 	(N'Дмитрий',   N'Воронин',      N'Анатольевич'),
@@ -21,8 +21,8 @@ INSERT [author]
 	(N'Тест',      N'Тестович',     NULL)
 GO
 
-/****** Insert in [genre] ******/
-INSERT [genre] 
+/****** Insert in [genres] ******/
+INSERT [genres] 
 	([name]) 
 	VALUES 
 	(N'Фэнтези'),
@@ -30,8 +30,8 @@ INSERT [genre]
 	(N'Научная фантастика'),
 	(N'Детектив')
 
-/****** Insert in [book] ******/
-INSERT [book] 
+/****** Insert in [books] ******/
+INSERT [books] 
 	([name], [author_id]) 
 	VALUES 
 	(N'Синее пламя', 1),
@@ -43,15 +43,15 @@ INSERT [book]
 	(N'Ночной тестировщик', 4)
 GO
 
-/****** Insert in [book_genre] ******/
-INSERT [book_genre] 
+/****** Insert in [book_genres] ******/
+INSERT [book_genres] 
 	([book_id], [genre_id])
 	VALUES 
 	(1, 1), (2, 2), (3, 2), (4, 1), (5, 2), (6, 3), (7, 4)
 GO
 
-/****** Insert in [library_card] ******/
-INSERT [library_card]
+/****** Insert in [library_cards] ******/
+INSERT [library_cards]
 	([person_id], [book_id], [taking_date]) 
 	VALUES 
 	(1, 3, CAST(N'2021-06-12' AS Date)),

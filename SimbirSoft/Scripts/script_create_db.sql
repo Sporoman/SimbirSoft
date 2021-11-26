@@ -5,20 +5,20 @@ GO
 USE [simbirSoft]
 GO
 
-/****** Object: Table [author] ******/
-CREATE TABLE [author]
+/****** Object: Table [authors] ******/
+CREATE TABLE [authors]
 (
-	[id]            [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_author] PRIMARY KEY,
+	[id]            [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_authors] PRIMARY KEY,
 	[first_name]    [nvarchar](50) NOT NULL,
 	[last_name]     [nvarchar](50) NOT NULL,
 	[middle_name]   [nvarchar](50) NULL
 )
 GO
 
-/****** Object: Table [person] ******/
-CREATE TABLE [person]
+/****** Object: Table [persons] ******/
+CREATE TABLE [persons]
 (
-	[id]            [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_person] PRIMARY KEY,
+	[id]            [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_persons] PRIMARY KEY,
 	[first_name]    [nvarchar](50) NOT NULL,
 	[last_name]     [nvarchar](50) NOT NULL,
 	[middle_name]   [nvarchar](50) NULL,
@@ -26,33 +26,33 @@ CREATE TABLE [person]
 )
 GO
 
-/****** Object: Table [genre] ******/
-CREATE TABLE [genre]
+/****** Object: Table [genres] ******/
+CREATE TABLE [genres]
 (
-	[id]     [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_genre] PRIMARY KEY,
+	[id]     [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_genres] PRIMARY KEY,
 	[name]   [nvarchar](50) NOT NULL
 )
 GO
 
-/****** Object: Table [book] ******/
-CREATE TABLE [book]
+/****** Object: Table [books] ******/
+CREATE TABLE [books]
 (
-	[id]          [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_book] PRIMARY KEY,
+	[id]          [int] IDENTITY(1,1) NOT NULL CONSTRAINT [PK_books] PRIMARY KEY,
 	[name]        [nvarchar](50) NOT NULL,
 	[author_id]   [int] NOT NULL
 )
 GO
 
-/****** Object: Table [book_genre] ******/
-CREATE TABLE [book_genre]
+/****** Object: Table [book_genres] ******/
+CREATE TABLE [book_genres]
 (
 	[book_id]    [int] NOT NULL,
 	[genre_id]   [int] NOT NULL
 )
 GO
 
-/****** Object: Table [library_card] ******/
-CREATE TABLE [library_card]
+/****** Object: Table [library_cards] ******/
+CREATE TABLE [library_cards]
 (
 	[person_id]     [int] NULL,
 	[book_id]       [int] NULL,
@@ -61,27 +61,27 @@ CREATE TABLE [library_card]
 GO
 
 /****** Foreign keys ******/
-ALTER TABLE [book] ADD CONSTRAINT [FK_book_author] 
+ALTER TABLE [books] ADD CONSTRAINT [FK_books_authors] 
 	FOREIGN KEY ([author_id]) 
-		REFERENCES [author] ([id])
+		REFERENCES [authors] ([id])
 GO
 
-ALTER TABLE [book_genre] ADD CONSTRAINT [FK_book_genre_book] 
+ALTER TABLE [book_genres] ADD CONSTRAINT [FK_book_genres_books] 
 	FOREIGN KEY ([book_id])
-		REFERENCES [book] ([id])
+		REFERENCES [books] ([id])
 GO
 
-ALTER TABLE [book_genre] ADD CONSTRAINT [FK_book_genre_genre]
+ALTER TABLE [book_genres] ADD CONSTRAINT [FK_book_genre_genres]
 	FOREIGN KEY ([genre_id])
-		REFERENCES [genre] ([id])
+		REFERENCES [genres] ([id])
 GO
 
-ALTER TABLE [library_card] ADD CONSTRAINT [FK_library_card_book]
+ALTER TABLE [library_cards] ADD CONSTRAINT [FK_library_cards_books]
 	FOREIGN KEY ([book_id])
-		REFERENCES [book] ([id])
+		REFERENCES [books] ([id])
 GO
 
-ALTER TABLE [library_card] ADD CONSTRAINT [FK_library_card_person]
+ALTER TABLE [library_cards] ADD CONSTRAINT [FK_library_cards_persons]
 	FOREIGN KEY ([person_id])
-		REFERENCES [person] ([id])
+		REFERENCES [persons] ([id])
 GO
